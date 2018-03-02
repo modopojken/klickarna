@@ -23,7 +23,7 @@ var BombskaClicks = 0;
 var LittleboyPurchased = 0;
 var Bombska;
 var BombskaPurchased = 0;
-var Tsarbomba;
+
 var TsarbombaClicks = 0;
 var TsarbombaPurchased = 0;
 var TsarbombaCost = 10000;
@@ -89,10 +89,19 @@ clickValue.toFixed(0);
 
 Tsarbomba.addEventListener("click", function(){
 
-	Tsarbomba++;
-	Bank - TsarbombaCost;
+	if(bank>9999){
+	clickValue.toFixed(0)
+	bank -= TsarbombaCost;
+	TsarbombaPurchased++;
+	clickValue = TsarbombaPurchased + clickValue * 1000;
+	TsarbombaCost *=1.23;
+	TsarbombaClicks += 100;
 
+	scoreText.textContent = "Hazard Points: " + Math.floor(bank);
+	Tsarbomba.textContent = "Tsarbomba: " + Math.floor(TsarbombaCost);
+	powerText.textContent = "Du köpte den största bomben som finns på marknaden, vill du ha en påse till det?";
 
+}else{powerText.textContent = "Du har inte råd med Tsarbomberino";}
 
 
 },true);
