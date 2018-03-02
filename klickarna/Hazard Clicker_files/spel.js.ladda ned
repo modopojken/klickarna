@@ -6,7 +6,6 @@ var powerText = document.getElementById("powerText");
 var scoreText = document.createElement("p");
 var FatmanKnapp = document.getElementById("Fatman");
 var Bombska = document.getElementById("Bombska");
-var Tsarbomba = document.getElementById("Tsarbomba");
 
 /* spelvariabler */
 var clickValue = 1;
@@ -87,15 +86,7 @@ clickValue.toFixed(0);
 }, true);
 
 
-Tsarbomba.addEventListener("click", function(){
-
-	Tsarbomba++;
-	Bank - TsarbombaCost;
-
-
-
-
-},true);
+Tsarbomba.addEventListener("click")
 
 
 
@@ -109,7 +100,7 @@ Bombska.addEventListener("click", function(){
 		Bombska.style.display = "none";
 }
 
-if(bank == 420){powerText.textContent = "kys...";}
+if(clickValue == 2){powerText.textContent = "kys...";}
 
 },true);
 
@@ -119,12 +110,11 @@ LittleboyKnapp.addEventListener("click", function() {
 	if (bank >= LittleboyCost) {
 		clickValue.toFixed(0);
 		bank -= LittleboyCost;
-		LittleboyPurchased++;
-		clickValue = LittleboyPurchased + clickValue * 2;
+		clickValue *=2;
 		LittleboyCost *=1.5;
 		LittleboyClicks += 10;
 
-		
+		LittleboyPurchased++;
 		if(LittleboyPurchased >= 10 && BombskaPurchased == 0){
 			
 			Bombska.style.display = "inline";
