@@ -1,0 +1,48 @@
+<!-- 
+<!DOCTYPE html>
+<html>
+<head>
+	<title></title>
+</head>
+<body>
+
+</body>
+</html>
+-->
+
+
+/* element fÃ¶r manipulation */
+var button = document.getElementById("clickerbutton");
+var lejonKnapp = document.getElementById("lejon");
+var scoreDiv = document.getElementById("score");
+var powerText = document.getElementById("powerText");
+var scoreText = document.createElement("p");
+
+/* spelvariabler */
+var clickValue = 1;
+var bank = 0;
+var lejonCost = 15;
+
+/* start */
+scoreText.textContent = "Points: 0";
+
+/* click event + logic */
+button.addEventListener("click", function() {
+	bank += clickValue; // lÃ¤gg till vÃ¤rdet vid click
+	scoreText.textContent = "Points: " + bank; // sÃ¤tt textvÃ¤rdet i p elementet till bank.
+});
+
+scoreDiv.appendChild(scoreText); // fÃ¤st p elementet i score diven.
+
+lejonKnapp.addEventListener("click", function() {
+	if (bank >= 15) {
+		console.log("kÃ¶pte lejon");
+		bank = bank - lejonCost;
+		clickValue = clickValue*2;
+		lejonCost += 5;
+		powerText.textContent = "KÃ¶pte lejon";
+		scoreText.textContent = "Points: " + bank; // sÃ¤tt textvÃ¤rdet i p elementet till bank.
+	} else {
+		powerText.textContent = "Du har inte rÃ¥d med lejon";
+	}
+});

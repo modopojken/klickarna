@@ -6,7 +6,6 @@ var powerText = document.getElementById("powerText");
 var scoreText = document.createElement("p");
 var FatmanKnapp = document.getElementById("Fatman");
 var Bombska = document.getElementById("Bombska");
-var Tsarbomba = document.getElementById("Tsarbomba");
 
 /* spelvariabler */
 var clickValue = 1;
@@ -23,14 +22,14 @@ var BombskaClicks = 0;
 var LittleboyPurchased = 0;
 var Bombska;
 var BombskaPurchased = 0;
-
+var Tsarbomba;
 var TsarbombaClicks = 0;
 var TsarbombaPurchased = 0;
 var TsarbombaCost = 10000;
 
 
 
-powerText.textContent = "Börja Klicka!🅱🅱🅱🅱🅱🅱🅱🅱🅱";
+powerText.textContent = "Börja Klicka!";
 /* start */
 scoreText.textContent = "Hazard Points: 0";
 LittleboyKnapp.textContent = "Little Boy: " + LittleboyCost;
@@ -41,7 +40,7 @@ button.addEventListener("click", function() {
 if(LittleboyClicks > 0){
 	clickValue.toFixed(0);
 	LittleboyClicks--;
-	console.log("Du har " + LittleboyClicks + " Little Boy's kvar");
+	console.log("Du har " + LittleboyClicks + " Little Boy kvar");
 }else if(LittleboyClicks == 0){
 
 clickValue = 1;
@@ -82,29 +81,12 @@ clickValue.toFixed(0);
 		powerText.textContent = "Nej!!!";
 clickValue.toFixed(0);
 	}else{
-		powerText.textContent = "Du har inte råd med Fatman ¯(_(ツ)_)¯";
+		powerText.textContent = "Du har inte råd med Fatman";
 	}
 }, true);
 
 
-Tsarbomba.addEventListener("click", function(){
-
-	if(bank>9999){
-	clickValue.toFixed(0)
-	bank -= TsarbombaCost;
-	TsarbombaPurchased++;
-	clickValue = TsarbombaPurchased + clickValue * 1000;
-	TsarbombaCost *=1.23;
-	TsarbombaClicks += 100;
-
-	scoreText.textContent = "Hazard Points: " + Math.floor(bank);
-	Tsarbomba.textContent = "Tsarbomba: " + Math.floor(TsarbombaCost);
-	powerText.textContent = "Du köpte den största bomben som finns på marknaden, vill du ha en påse till det?¯(_(ツ)_)¯";
-
-}else{powerText.textContent = "Du har inte råd med Tsarbomberino¯(_(ツ)_)¯";}
-
-
-},true);
+Tsarbomba.addEventListener("click")
 
 
 
@@ -114,11 +96,11 @@ Bombska.addEventListener("click", function(){
 	console.log("Du har " + BombskaClicks + " Bombska's");
 	bank = bank * 2;	
 	bank - BombskaCost;
-	if(BombskaClicks >= 1){powerText.textContent = "Du får inte köpa en till!!!!¯(_(ツ)_)¯";
+	if(BombskaClicks >= 1){powerText.textContent = "Du får inte köpa en till!!!!";
 		Bombska.style.display = "none";
 }
 
-if(bank == 420){powerText.textContent = "kys...";}
+if(clickValue == 2){powerText.textContent = "kys...";}
 
 },true);
 
@@ -128,12 +110,11 @@ LittleboyKnapp.addEventListener("click", function() {
 	if (bank >= LittleboyCost) {
 		clickValue.toFixed(0);
 		bank -= LittleboyCost;
-		LittleboyPurchased++;
-		clickValue = LittleboyPurchased + clickValue * 2;
+		clickValue *=2;
 		LittleboyCost *=1.5;
 		LittleboyClicks += 10;
 
-		
+		LittleboyPurchased++;
 		if(LittleboyPurchased >= 10 && BombskaPurchased == 0){
 			
 			Bombska.style.display = "inline";
@@ -145,7 +126,7 @@ LittleboyKnapp.addEventListener("click", function() {
 		powerText.textContent = "Köpte Little Boy";
 		scoreText.textContent = "Hazard Points: " + Math.floor(bank); // sätt textvärdet i p elementet till bank.
 	} else {
-		powerText.textContent = "Du har inte råd med denna atombomb ¯(_(ツ)_)¯";
+		powerText.textContent = "Du har inte råd med denna atombomb";
 		scoreText.textContent = "Hazard Points: " + Math.floor(bank);
 	}
 });

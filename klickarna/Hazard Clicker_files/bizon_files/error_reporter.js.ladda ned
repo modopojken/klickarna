@@ -1,0 +1,1 @@
+window.onerror=function myErrorHandler(errorMsg,url,lineNumber){return false;}
